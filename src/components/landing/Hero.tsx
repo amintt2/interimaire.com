@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { ArrowRight, Sparkles, Github } from "lucide-react"
 import { motion } from "framer-motion"
 import { BubbleBackground } from "@/components/ui/shadcn-io/bubble-background"
+import TextPressure from "@/components/ui/shadcn-io/text-pressure"
 
 export function Hero() {
     return (
@@ -34,17 +35,36 @@ export function Hero() {
                     </Link>
                 </motion.div>
 
-                <motion.h1
-                    className="font-heading text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight"
+                <motion.div
+                    className="w-full flex items-center justify-center"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.1 }}
                 >
-                    <span className="block text-white">L&apos;intérim</span>
+                    <TextPressure
+                        text="L'intérim réinventé."
+                        flex={true}
+                        alpha={false}
+                        stroke={false}
+                        width={false}
+                        weight={true}
+                        italic={false}
+                        textColor="white"
+                        minFontSize={48}
+                        className="text-white font-bold"
+                    />
+                </motion.div>
+
+                <motion.h2
+                    className="font-heading text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.15 }}
+                >
                     <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-violet-400 to-blue-400 animate-gradient-x">
                         Open Source & IA
                     </span>
-                </motion.h1>
+                </motion.h2>
 
                 <motion.p
                     className="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8"
@@ -74,7 +94,7 @@ export function Hero() {
                     </Button>
                     <Button asChild variant="outline" size="lg" className="h-12 px-8 text-lg border-white/10 hover:bg-white/5 hover:text-white">
                         <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
-                            <Github className="mr-2 h-5 w-5" /> Code Source
+                            <Github className="mr-2 h-5 w-5" /> Github
                         </Link>
                     </Button>
                 </motion.div>

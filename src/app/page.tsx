@@ -18,8 +18,8 @@ export default function Home() {
           description="La première plateforme de gestion d'intérim construite par la communauté, pour la communauté. 100% Transparent. 100% Automatisé."
         />
         {/* Teaser Sections - Reduced padding/content if needed, or kept full for "One Page" feel with routing options */}
-        <Features />
-        <RoadmapCalculator />
+        <Features showLink={true} />
+        <RoadmapCalculator showLink={true} />
         <Pricing />
         <Contact />
       </main>

@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { ShieldCheck, Lock } from "lucide-react"
 import { cn } from "@/lib/utils"
 
-export function RoadmapCalculator() {
+export function RoadmapCalculator({ showLink = false }: { showLink?: boolean }) {
     const [funding, setFunding] = React.useState([1500])
     const amount = funding[0]
     const isLocked = amount < 1500
@@ -41,10 +41,13 @@ export function RoadmapCalculator() {
     const stats = calculateStats(amount)
 
     return (
-        <section className="container py-12 md:py-24">
-            <div className="text-center space-y-4 mb-16">
+        <section className="container py-12 md:py-24 relative overflow-hidden">
+            {/* Background Gradients */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-500/10 rounded-full blur-[120px] -z-10" />
+
+            <div className="text-center space-y-4 mb-16 relative z-10">
                 <h1 className="text-4xl md:text-6xl font-bold tracking-tighter text-white">
-                    Roadmap Interactive
+                    Roadmap <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Interactive</span>
                 </h1>
                 <p className="text-muted-foreground md:text-xl max-w-2xl mx-auto">
                     La vitesse de développement dépend de la puissance de la communauté.
@@ -53,9 +56,9 @@ export function RoadmapCalculator() {
                 </p>
             </div>
 
-            <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto relative z-10">
                 {/* Left Column: Controls & Stats */}
-                <div className="space-y-8 bg-card/30 backdrop-blur-sm border border-white/10 rounded-3xl p-8">
+                <div className="space-y-8 bg-zinc-900/50 backdrop-blur-xl border border-white/10 rounded-3xl p-8 hover:border-white/20 transition-colors duration-300 shadow-2xl shadow-black/50">
                     {/* Slider Section */}
                     <div className="space-y-6">
                         <div className="flex items-baseline gap-2">
@@ -65,7 +68,7 @@ export function RoadmapCalculator() {
                         </div>
 
                         <div className="flex items-baseline gap-2">
-                            <span className="text-5xl font-bold text-white">{amount}€</span>
+                            <span className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400">{amount}€</span>
                             <span className="text-xl text-muted-foreground">/ mois</span>
                         </div>
 
@@ -77,7 +80,7 @@ export function RoadmapCalculator() {
                                 step={100}
                                 value={funding}
                                 onValueChange={setFunding}
-                                className="[&>.relative>.absolute]:bg-blue-600"
+                                className="[&>.relative>.absolute]:bg-gradient-to-r [&>.relative>.absolute]:from-blue-600 [&>.relative>.absolute]:to-cyan-500"
                             />
                             <div className="flex justify-between text-xs text-muted-foreground mt-2 font-mono">
                                 <span>500€</span>
@@ -88,14 +91,19 @@ export function RoadmapCalculator() {
                     </div>
 
                     {/* Projection Card */}
-                    <div className="bg-black/40 rounded-2xl p-6 border border-white/5 min-h-[200px] flex flex-col justify-center">
-                        <h3 className="text-lg font-medium text-muted-foreground mb-6">Projection</h3>
+                    <div className="bg-black/40 rounded-2xl p-6 border border-white/5 min-h-[200px] flex flex-col justify-center relative overflow-hidden group">
+                        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                        <h3 className="text-lg font-medium text-muted-foreground mb-6 relative z-10">Projection</h3>
 
                         {isLocked ? (
-                            <div className="space-y-6">
+                            <div className="space-y-6 relative z-10">
                                 <div className="space-y-2">
                                     <div className="text-2xl font-bold text-white">Projet en attente</div>
-                                    <div className="text-red-400">Le seuil de 1500€ n'est pas atteint.</div>
+                                    <div className="text-red-400 flex items-center gap-2">
+                                        <Lock className="w-4 h-4" />
+                                        Le seuil de 1500€ n'est pas atteint.
+                                    </div>
                                 </div>
 
                                 <div className="bg-blue-500/10 border border-blue-500/20 rounded-xl p-4 flex gap-4 items-start">
@@ -110,7 +118,7 @@ export function RoadmapCalculator() {
                                 </div>
                             </div>
                         ) : (
-                            <div className="space-y-6">
+                            <div className="space-y-6 relative z-10">
                                 <div className="flex justify-between items-center border-b border-white/5 pb-4">
                                     <span className="text-muted-foreground">Durée estimée</span>
                                     <span className="text-2xl font-bold text-white">{stats.duration} mois</span>
@@ -121,7 +129,7 @@ export function RoadmapCalculator() {
                                 </div>
                                 <div className="flex justify-between items-center">
                                     <span className="text-muted-foreground">Vitesse</span>
-                                    <span className="px-3 py-1 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold border border-blue-500/30">
+                                    <span className="px-3 py-1 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold border border-blue-500/30 shadow-[0_0_15px_rgba(59,130,246,0.3)]">
                                         {stats.speed}
                                     </span>
                                 </div>
@@ -131,38 +139,45 @@ export function RoadmapCalculator() {
                 </div>
 
                 {/* Right Column: Sequencing */}
-                <div className="relative space-y-8 bg-card/30 backdrop-blur-sm border border-white/10 rounded-3xl p-8 overflow-hidden">
+                <div className="relative space-y-8 bg-zinc-900/50 backdrop-blur-xl border border-white/10 rounded-3xl p-8 overflow-hidden flex flex-col hover:border-white/20 transition-colors duration-300 shadow-2xl shadow-black/50">
                     {/* Header */}
                     <div className="flex justify-between items-center mb-8">
                         <div className="flex items-center gap-2">
-                            <div className="w-5 h-5 text-blue-400">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            <div className="w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center text-blue-400 border border-blue-500/30">
+                                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                     <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
                                 </svg>
                             </div>
                             <h2 className="text-xl font-bold text-white">Séquencement</h2>
                         </div>
-                        <div className="px-2 py-1 rounded border border-white/10 text-[10px] font-mono text-muted-foreground uppercase">
+                        <div className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-green-500/30 bg-green-500/10 text-[10px] font-mono text-green-400 uppercase tracking-wider">
+                            <span className="relative flex h-2 w-2">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                            </span>
                             Live Preview
                         </div>
                     </div>
 
                     {/* Phase Bar */}
-                    <div className="relative h-16 w-full flex rounded-lg overflow-hidden mb-2">
-                        <div className="flex-1 bg-green-600/80 flex items-center justify-center text-xs font-bold text-white/90 border-r border-white/10">
-                            Phase 1: Architecture
+                    <div className="relative h-16 w-full flex rounded-xl overflow-hidden mb-2 shadow-lg">
+                        <div className="flex-1 bg-gradient-to-r from-emerald-600 to-emerald-500 flex items-center justify-center text-xs font-bold text-white border-r border-white/10 relative group">
+                            <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                            Phase 1
                         </div>
-                        <div className="flex-[1.5] bg-indigo-500/80 flex items-center justify-center text-xs font-bold text-white/90 border-r border-white/10">
-                            Phase 2: Core Dev
+                        <div className="flex-[1.5] bg-gradient-to-r from-indigo-600 to-indigo-500 flex items-center justify-center text-xs font-bold text-white border-r border-white/10 relative group">
+                            <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                            Phase 2
                         </div>
-                        <div className="flex-1 bg-teal-500/80 flex items-center justify-center text-xs font-bold text-white/90">
-                            Phase 3: Beta
+                        <div className="flex-1 bg-gradient-to-r from-cyan-600 to-cyan-500 flex items-center justify-center text-xs font-bold text-white relative group">
+                            <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                            Phase 3
                         </div>
 
                         {/* Locked Overlay */}
                         {isLocked && (
-                            <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px] flex items-center justify-center z-10">
-                                <div className="flex items-center gap-2 text-white/80 font-medium">
+                            <div className="absolute inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-10">
+                                <div className="flex items-center gap-2 text-white/80 font-medium px-4 py-2 rounded-full border border-white/10 bg-white/5">
                                     <Lock className="w-4 h-4" />
                                     <span>Roadmap verrouillée</span>
                                 </div>
@@ -170,52 +185,66 @@ export function RoadmapCalculator() {
                         )}
                     </div>
 
-                    <div className="flex justify-between text-xs text-blue-400 font-mono mb-12">
+                    <div className="flex justify-between text-xs text-blue-400 font-mono mb-12 px-1">
                         <span>T0 (Maintenant)</span>
                         <span>Lancement</span>
                     </div>
 
                     {/* Steps List */}
-                    <div className="space-y-8 relative">
+                    <div className="space-y-8 relative flex-1 pl-2">
                         {/* Vertical Line */}
-                        <div className="absolute left-[19px] top-2 bottom-2 w-[2px] bg-white/10 -z-10" />
+                        <div className="absolute left-[27px] top-2 bottom-2 w-[2px] bg-gradient-to-b from-blue-500/50 via-blue-500/10 to-transparent -z-10" />
 
-                        <div className="flex gap-6 relative">
-                            <div className="w-10 h-10 rounded-full bg-slate-800 border border-white/10 flex items-center justify-center shrink-0 text-blue-400 font-bold z-10">
+                        <div className="flex gap-6 relative group">
+                            <div className="w-10 h-10 rounded-full bg-zinc-900 border border-blue-500/50 flex items-center justify-center shrink-0 text-blue-400 font-bold z-10 shadow-[0_0_10px_rgba(59,130,246,0.2)] group-hover:scale-110 transition-transform duration-300">
                                 1
                             </div>
                             <div className="space-y-1 pt-1">
-                                <h3 className="font-bold text-white">Analyse & Design</h3>
+                                <h3 className="font-bold text-white group-hover:text-blue-400 transition-colors">Analyse & Design</h3>
                                 <p className="text-sm text-muted-foreground">
                                     Définition des specs IA avec les partenaires fondateurs.
                                 </p>
                             </div>
                         </div>
 
-                        <div className="flex gap-6 relative">
-                            <div className="w-10 h-10 rounded-full bg-slate-800 border border-white/10 flex items-center justify-center shrink-0 text-blue-400 font-bold z-10">
+                        <div className="flex gap-6 relative group">
+                            <div className="w-10 h-10 rounded-full bg-zinc-900 border border-white/10 flex items-center justify-center shrink-0 text-muted-foreground font-bold z-10 group-hover:border-blue-500/50 group-hover:text-blue-400 transition-colors duration-300">
                                 2
                             </div>
                             <div className="space-y-1 pt-1">
-                                <h3 className="font-bold text-white">Développement Sprint</h3>
+                                <h3 className="font-bold text-white group-hover:text-blue-400 transition-colors">Développement Sprint</h3>
                                 <p className="text-sm text-muted-foreground">
                                     Cycles courts. Livraisons toutes les 2 semaines.
                                 </p>
                             </div>
                         </div>
 
-                        <div className="flex gap-6 relative">
-                            <div className="w-10 h-10 rounded-full bg-slate-800 border border-white/10 flex items-center justify-center shrink-0 text-blue-400 font-bold z-10">
+                        <div className="flex gap-6 relative group">
+                            <div className="w-10 h-10 rounded-full bg-zinc-900 border border-white/10 flex items-center justify-center shrink-0 text-muted-foreground font-bold z-10 group-hover:border-blue-500/50 group-hover:text-blue-400 transition-colors duration-300">
                                 3
                             </div>
                             <div className="space-y-1 pt-1">
-                                <h3 className="font-bold text-white">Production</h3>
+                                <h3 className="font-bold text-white group-hover:text-blue-400 transition-colors">Production</h3>
                                 <p className="text-sm text-muted-foreground">
                                     Audit de sécurité et déploiement final.
                                 </p>
                             </div>
                         </div>
                     </div>
+
+                    {showLink && (
+                        <div className="mt-8 pt-8 border-t border-white/10 text-center">
+                            <a
+                                href="/roadmap"
+                                className="group inline-flex items-center justify-center px-8 py-3 text-sm font-bold text-white bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 rounded-full transition-all duration-200 shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40"
+                            >
+                                Découvrir la Roadmap Détaillée
+                                <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                </svg>
+                            </a>
+                        </div>
+                    )}
                 </div>
             </div>
         </section>

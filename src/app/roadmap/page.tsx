@@ -1,6 +1,6 @@
 import { Header } from "@/components/landing/Header"
 import { Footer } from "@/components/landing/Footer"
-import { RoadmapCalculator } from "@/components/landing/RoadmapCalculator"
+import { DetailedRoadmap } from "@/components/roadmap/DetailedRoadmap"
 import { FlickeringGrid } from "@/components/ui/shadcn-io/flickering-grid"
 
 export default function RoadmapPage() {
@@ -18,7 +18,7 @@ export default function RoadmapPage() {
                         flickerChance={0.1}
                     />
                 </div>
-                <RoadmapCalculator />
+                <DetailedRoadmap />
             </main>
             <Footer />
         </div>

@@ -1,23 +1,23 @@
 import { Header } from "@/components/landing/Header"
 import { Footer } from "@/components/landing/Footer"
-import { Features } from "@/components/landing/Features"
-import { Particles } from "@/components/ui/shadcn-io/particles"
+import { DetailedFeatures } from "@/components/features/DetailedFeatures"
+import { InteractiveGridPattern } from "@/components/ui/shadcn-io/interactive-grid-pattern"
+import { cn } from "@/lib/utils"
 
 export default function FeaturesPage() {
     return (
         <div className="flex min-h-screen flex-col bg-slate-950">
             <Header />
-            <main className="flex-1 pt-20 relative">
-                <div className="absolute inset-0 -z-10">
-                    <Particles
-                        className="w-full h-full"
-                        quantity={100}
-                        ease={80}
-                        color="#ffffff"
-                        refresh
-                    />
+            <main className="flex-1 pt-20 relative overflow-hidden">
+                <InteractiveGridPattern
+                    className={cn(
+                        "[mask-image:radial-gradient(600px_circle_at_center,white,transparent)]",
+                        "inset-x-0 inset-y-[-30%] h-[200%] skew-y-12 -z-10"
+                    )}
+                />
+                <div className="relative z-10">
+                    <DetailedFeatures />
                 </div>
-                <Features />
             </main>
             <Footer />
         </div>

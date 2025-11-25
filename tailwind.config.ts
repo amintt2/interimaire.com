@@ -60,6 +60,7 @@ const config: Config = {
                 "accordion-down": "accordion-down 0.2s ease-out",
                 "accordion-up": "accordion-up 0.2s ease-out",
                 "gradient-x": "gradient-x 15s ease infinite",
+                aurora: "aurora 60s linear infinite",
             },
             keyframes: {
                 "accordion-down": {
@@ -78,6 +79,14 @@ const config: Config = {
                     "50%": {
                         "background-size": "200% 200%",
                         "background-position": "right center",
+                    },
+                },
+                aurora: {
+                    from: {
+                        backgroundPosition: "50% 50%, 50% 50%",
+                    },
+                    to: {
+                        backgroundPosition: "350% 50%, 350% 50%",
                     },
                 },
             },
