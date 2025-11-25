@@ -142,15 +142,15 @@ export function DetailedFeatures() {
                 </div>
             </section>
 
-            {/* Scroll Velocity Divider - Full Width - Only 2 lines */}
+            {/* Scroll Velocity Divider - Reduced size */}
             <ScrollVelocity
                 texts={['ATS • CRM • ADMIN • TEMPS • PAIE • IA', 'ATS • CRM • ADMIN • TEMPS • PAIE • IA']}
                 velocity={100}
-                className="text-white/20 text-7xl md:text-8xl font-bold"
+                className="text-white/20 text-5xl md:text-6xl font-bold"
             />
 
             <section className="relative py-24 space-y-48 overflow-hidden">
-                {/* Feature Sections */}
+                {/* Feature Sections - Centered */}
                 <div className="space-y-48">
                     {features.map((feature, index) => (
                         <FeatureSection key={index} feature={feature} index={index} />
@@ -158,11 +158,11 @@ export function DetailedFeatures() {
                 </div>
             </section>
 
-            {/* Bottom Scroll Velocity - Full Width - Only 2 lines */}
+            {/* Bottom Scroll Velocity - Reduced size */}
             <ScrollVelocity
                 texts={['INNOVATION • AUTOMATISATION • INTELLIGENCE', 'INNOVATION • AUTOMATISATION • INTELLIGENCE']}
                 velocity={80}
-                className="text-white/20 text-7xl md:text-8xl font-bold"
+                className="text-white/20 text-5xl md:text-6xl font-bold"
             />
 
             <section className="relative py-24 overflow-hidden">
@@ -197,157 +197,117 @@ function FeatureSection({ feature, index }: { feature: typeof features[0]; index
     const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0])
     const y = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [100, 0, 0, -100])
 
-    const isLeft = index % 2 === 0
-
     return (
         <motion.div
             ref={sectionRef}
             style={{ opacity, y }}
-            className="container"
+            className="container relative"
         >
-            <div className={cn(
-                "grid grid-cols-1 lg:grid-cols-2 gap-16 items-start",
-                isLeft ? "" : "lg:grid-flow-dense"
-            )}>
-                {/* Content Side */}
-                <div className={cn("space-y-8", isLeft ? "lg:pr-12" : "lg:pl-12 lg:col-start-2")}>
-                    <div className="space-y-6">
-                        <motion.div
-                            initial={{ opacity: 0, x: isLeft ? -50 : 50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.6 }}
-                            viewport={{ once: true }}
-                            className="space-y-4"
-                        >
-                            <div className="flex items-center gap-4">
-                                <div className={cn(
-                                    "h-20 w-20 rounded-2xl flex items-center justify-center",
-                                    "bg-gradient-to-br from-white/10 to-white/5 border border-white/10 backdrop-blur-sm"
-                                )}>
-                                    <feature.icon className="h-10 w-10 text-blue-400" />
-                                </div>
-                                <div>
-                                    <p className="text-sm text-blue-400 font-medium uppercase tracking-wider">{feature.subtitle}</p>
-                                    <RollingText className="text-4xl md:text-5xl font-bold text-white" text={feature.title} />
-                                </div>
-                            </div>
+            {/* Gradient background under text */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div className={cn(
+                    "w-full max-w-4xl h-96 rounded-full blur-3xl opacity-10",
+                    `bg-gradient-to-br ${feature.gradient}`
+                )} />
+            </div>
 
-                            <div className="text-2xl md:text-3xl text-muted-foreground font-light">
-                                <FlipWords
-                                    words={feature.flipWords}
-                                    duration={2500}
-                                    className="text-blue-400 font-semibold"
-                                />{" "}
-                                <span className="text-white">pour votre agence</span>
-                            </div>
-
-                            <p className="text-muted-foreground text-lg leading-relaxed">
-                                {feature.description}
-                            </p>
-                        </motion.div>
+            {/* Centered Content */}
+            <div className="relative z-10 max-w-4xl mx-auto text-center space-y-12">
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    viewport={{ once: true }}
+                    className="space-y-6"
+                >
+                    <div className="flex flex-col items-center gap-4">
+                        <div className={cn(
+                            "h-20 w-20 rounded-2xl flex items-center justify-center",
+                            "bg-gradient-to-br from-white/10 to-white/5 border border-white/10 backdrop-blur-sm"
+                        )}>
+                            <feature.icon className="h-10 w-10 text-blue-400" />
+                        </div>
+                        <div>
+                            <p className="text-sm text-blue-400 font-medium uppercase tracking-wider">{feature.subtitle}</p>
+                            <RollingText className="text-4xl md:text-5xl font-bold text-white" text={feature.title} />
+                        </div>
                     </div>
 
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        transition={{ delay: 0.3 }}
-                        viewport={{ once: true }}
-                        className="space-y-5"
-                    >
-                        {feature.keywords.map((keyword, idx) => (
-                            <motion.div
-                                key={idx}
-                                initial={{ opacity: 0, x: isLeft ? -30 : 30 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                transition={{ delay: 0.4 + idx * 0.1 }}
-                                viewport={{ once: true }}
-                                className="group relative"
-                            >
-                                <div className="flex items-start gap-4 p-4 rounded-xl bg-gradient-to-br from-white/5 to-white/0 border border-white/10 backdrop-blur-sm hover:from-white/10 hover:border-blue-500/30 transition-all duration-300">
-                                    {keyword.icon && (
-                                        <div className="h-12 w-12 rounded-lg bg-gradient-to-br from-blue-500/20 to-cyan-500/20 border border-blue-500/30 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                                            <keyword.icon className="h-6 w-6 text-blue-400" />
-                                        </div>
-                                    )}
-                                    <div className="flex-1 pt-1">
-                                        {keyword.secure ? (
-                                            <div className="text-slate-300 text-lg leading-relaxed">
-                                                {keyword.text.split(keyword.highlight).map((part, i, arr) => (
-                                                    <span key={i}>
-                                                        {part}
-                                                        {i < arr.length - 1 && (
-                                                            <DecryptedText
-                                                                text={keyword.highlight}
-                                                                speed={50}
-                                                                maxIterations={10}
-                                                                sequential={true}
-                                                                className="font-semibold text-emerald-400 inline"
-                                                                encryptedClassName="font-semibold text-muted-foreground inline"
-                                                                animateOn="hover"
-                                                            />
-                                                        )}
-                                                    </span>
-                                                ))}
-                                            </div>
-                                        ) : (
-                                            <p className="text-slate-300 text-lg leading-relaxed">
-                                                {keyword.text.split(keyword.highlight).map((part, i, arr) => (
-                                                    <span key={i}>
-                                                        {part}
-                                                        {i < arr.length - 1 && (
-                                                            <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
-                                                                {keyword.highlight}
-                                                            </span>
-                                                        )}
-                                                    </span>
-                                                ))}
-                                            </p>
-                                        )}
+                    <div className="text-2xl md:text-3xl text-muted-foreground font-light">
+                        <FlipWords
+                            words={feature.flipWords}
+                            duration={2500}
+                            className="text-blue-400 font-semibold"
+                        />{" "}
+                        <span className="text-white">pour votre agence</span>
+                    </div>
+
+                    <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl mx-auto">
+                        {feature.description}
+                    </p>
+                </motion.div>
+
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ delay: 0.3 }}
+                    viewport={{ once: true }}
+                    className="space-y-5"
+                >
+                    {feature.keywords.map((keyword, idx) => (
+                        <motion.div
+                            key={idx}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.4 + idx * 0.1 }}
+                            viewport={{ once: true }}
+                            className="group relative"
+                        >
+                            <div className="flex items-start gap-4 p-4 rounded-xl bg-gradient-to-br from-white/5 to-white/0 border border-white/10 backdrop-blur-sm hover:from-white/10 hover:border-blue-500/30 transition-all duration-300 max-w-2xl mx-auto">
+                                {keyword.icon && (
+                                    <div className="h-12 w-12 rounded-lg bg-gradient-to-br from-blue-500/20 to-cyan-500/20 border border-blue-500/30 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                                        <keyword.icon className="h-6 w-6 text-blue-400" />
                                     </div>
+                                )}
+                                <div className="flex-1 pt-1 text-left">
+                                    {keyword.secure ? (
+                                        <div className="text-slate-300 text-lg leading-relaxed">
+                                            {keyword.text.split(keyword.highlight).map((part, i, arr) => (
+                                                <span key={i}>
+                                                    {part}
+                                                    {i < arr.length - 1 && (
+                                                        <DecryptedText
+                                                            text={keyword.highlight}
+                                                            speed={50}
+                                                            maxIterations={10}
+                                                            sequential={true}
+                                                            className="font-semibold text-emerald-400 inline"
+                                                            encryptedClassName="font-semibold text-muted-foreground inline"
+                                                            animateOn="hover"
+                                                        />
+                                                    )}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    ) : (
+                                        <p className="text-slate-300 text-lg leading-relaxed">
+                                            {keyword.text.split(keyword.highlight).map((part, i, arr) => (
+                                                <span key={i}>
+                                                    {part}
+                                                    {i < arr.length - 1 && (
+                                                        <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
+                                                            {keyword.highlight}
+                                                        </span>
+                                                    )}
+                                                </span>
+                                            ))}
+                                        </p>
+                                    )}
                                 </div>
-                            </motion.div>
-                        ))}
-                    </motion.div>
-                </div>
-
-                {/* Visual Side - Decorative Blur Effects */}
-                <div className={cn("relative min-h-[500px]", isLeft ? "lg:col-start-2" : "lg:col-start-1")}>
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.6 }}
-                        viewport={{ once: true }}
-                        className="relative h-full"
-                    >
-                        {/* Large blur orb */}
-                        <div className={cn(
-                            "absolute inset-0 rounded-full blur-3xl opacity-20",
-                            `bg-gradient-to-br ${feature.gradient}`
-                        )} />
-
-                        {/* Smaller accent blur */}
-                        <div className={cn(
-                            "absolute top-1/4 right-1/4 w-64 h-64 rounded-full blur-2xl opacity-30",
-                            `bg-gradient-to-br ${feature.gradient}`
-                        )} />
-
-                        {/* Icon showcase */}
-                        <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="relative">
-                                <div className={cn(
-                                    "h-48 w-48 rounded-3xl flex items-center justify-center",
-                                    "bg-gradient-to-br from-white/10 to-white/5 border border-white/20 backdrop-blur-xl",
-                                    "shadow-2xl"
-                                )}>
-                                    <feature.icon className="h-24 w-24 text-blue-400" />
-                                </div>
-                                {/* Floating particles */}
-                                <div className="absolute -top-4 -right-4 h-8 w-8 rounded-full bg-blue-500/30 blur-sm animate-pulse" />
-                                <div className="absolute -bottom-4 -left-4 h-12 w-12 rounded-full bg-cyan-500/30 blur-sm animate-pulse delay-75" />
                             </div>
-                        </div>
-                    </motion.div>
-                </div>
+                        </motion.div>
+                    ))}
+                </motion.div>
             </div>
         </motion.div>
     )
