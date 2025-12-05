@@ -7,11 +7,22 @@ import { Pricing } from "@/components/landing/Pricing"
 import Link from "next/link"
 import { ArrowRight, MessageCircle } from "lucide-react"
 
+// Unified Color Palette - Black, Grey, Violet
+const colors = {
+  base: "#030303",      // Pure black
+  deep: "#0a0a0a",      // Slightly lighter black
+  surface: "#111111",   // Dark grey surface
+  card: "#161616",      // Card background
+  border: "#262626",    // Border grey
+  glow: "#8b5cf6",      // Violet glow
+  accent: "#a855f7",    // Purple accent
+}
+
 // Section Transition Component - creates smooth gradient transitions between sections
 function SectionTransition({
   id,
-  from = "#030303",
-  to = "#0f172a",
+  from = colors.base,
+  to = colors.base,
   height = "200px",
 }: {
   id: string;
@@ -68,8 +79,15 @@ function SectionTransition({
 // Simple CTA Section for Contact
 function ContactCTA() {
   return (
-    <section className="py-24 px-6 bg-[#0a0e1a] relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-950/5 to-transparent pointer-events-none" />
+    <section className="py-24 px-6 relative overflow-hidden" style={{ backgroundColor: colors.accent }}>
+      {/* Subtle gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-600/5 to-transparent pointer-events-none" />
+      {/* Ambient glow */}
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full opacity-20 blur-[100px]"
+        style={{ background: `radial-gradient(circle, ${colors.glow}, transparent)` }}
+      />
+
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 mb-6">
           <MessageCircle className="w-4 h-4 text-blue-400" />
@@ -78,13 +96,13 @@ function ContactCTA() {
         <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
           Des questions ?
         </h2>
-        <p className="text-lg text-white/50 max-w-xl mx-auto mb-8">
+        <p className="text-lg text-slate-400 max-w-xl mx-auto mb-8">
           Notre équipe de fondateurs est disponible pour vous expliquer la vision
           en détail et répondre à toutes vos questions.
         </p>
         <Link
           href="/contact"
-          className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white font-semibold transition-all group"
+          className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white font-semibold transition-all shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 group"
         >
           Nous contacter
           <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -96,13 +114,16 @@ function ContactCTA() {
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col relative bg-[#030303]">
-      {/* Organic Background Transition */}
+    <div className="flex min-h-screen flex-col relative" style={{ backgroundColor: colors.base }}>
+      {/* Subtle gradient background like other pages */}
       <div
         className="fixed inset-0 pointer-events-none z-0"
         style={{
-          background: "radial-gradient(circle at 50% 100%, #0f172a, #020617 40%, #000000 100%)",
-          opacity: 0.8
+          background: `
+            radial-gradient(ellipse 80% 50% at 50% -20%, rgba(139, 92, 246, 0.08), transparent 50%),
+            radial-gradient(ellipse 60% 40% at 80% 60%, rgba(168, 85, 247, 0.05), transparent 50%),
+            radial-gradient(ellipse 50% 30% at 20% 80%, rgba(192, 132, 252, 0.05), transparent 50%)
+          `,
         }}
       />
 
@@ -117,45 +138,30 @@ export default function Home() {
           />
 
           {/* Transition from Hero to Features */}
-          <SectionTransition id="hero-to-features" from="#030303" to="#0a1628" height="150px" />
+          <SectionTransition id="hero-to-features" from={colors.base} to={colors.base} height="150px" />
 
-          {/* Features Section with dark blue background */}
-          <div className="bg-[#0a1628] relative">
+          {/* Features Section */}
+          <div style={{ backgroundColor: colors.base }} className="relative">
             <Features showLink={true} />
           </div>
 
           {/* Transition from Features to Roadmap */}
-          <SectionTransition id="features-to-roadmap" from="#0a1628" to="#050d1a" height="120px" />
+          <SectionTransition id="features-to-roadmap" from={colors.base} to={colors.base} height="120px" />
 
-          <div className="bg-[#050d1a] relative">
+          <div style={{ backgroundColor: colors.base }} className="relative">
             <RoadmapCalculator showLink={true} />
           </div>
 
-          {/* Transition to Pricing - with gradient wrapper */}
-          <SectionTransition id="roadmap-to-pricing" from="#050d1a" to="#0a1629" height="120px" />
+          {/* Transition to Pricing */}
+          <SectionTransition id="roadmap-to-pricing" from={colors.base} to={colors.base} height="120px" />
 
-          {/* Pricing Section with gradient background */}
-          <div className="relative overflow-hidden">
-            {/* Gradient background for Pricing */}
+          {/* Pricing Section */}
+          <div className="relative overflow-hidden" style={{ backgroundColor: colors.base }}>
+            {/* Subtle radial glow for depth */}
             <div
-              className="absolute inset-0"
+              className="absolute inset-0 opacity-30"
               style={{
-                background: `
-                  linear-gradient(180deg, 
-                    #0c1629 0%, 
-                    #001942c1 25%,
-                    rgba(13, 26, 45, 0.78) 50%,
-                    rgba(8, 18, 34, 0.85) 75%,
-                    rgba(10, 15, 28, 0.85) 100%
-                  )
-                `
-              }}
-            />
-            {/* Subtle radial glow */}
-            <div
-              className="absolute inset-0 opacity-40"
-              style={{
-                background: "radial-gradient(ellipse 80% 50% at 50% 50%, #1e3a5f 0%, transparent 60%)"
+                background: `radial-gradient(ellipse 70% 50% at 50% 30%, ${colors.glow}20, transparent 70%)`
               }}
             />
             <div className="relative z-10">
@@ -163,10 +169,13 @@ export default function Home() {
             </div>
           </div>
 
+          {/* Transition to Contact */}
+          <SectionTransition id="pricing-to-contact" from={colors.base} to={colors.base} height="80px" />
+
           <ContactCTA />
 
           {/* Transition to Footer */}
-          <SectionTransition id="contact-to-footer" from="#0a0e1a" to="#0a0e1a" height="100px" />
+          <SectionTransition id="contact-to-footer" from={colors.base} to="#0a0e1a" height="80px" />
         </main>
         <Footer />
       </div>

@@ -58,9 +58,9 @@ export function Features({ showLink = false }: { showLink?: boolean }) {
 
             <div className="text-center space-y-4 relative z-10">
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-white">
-                    Une Suite <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Tout-en-Un</span>
+                    Une Suite <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-fuchsia-400 to-violet-500">Tout-en-Un</span>
                 </h2>
-                <p className="mx-auto max-w-[800px] text-muted-foreground md:text-xl">
+                <p className="mx-auto max-w-[800px] text-white/50 md:text-xl">
                     De la candidature à la facturation, pilotez votre agence avec une précision chirurgicale.
                 </p>
             </div>
@@ -75,13 +75,13 @@ export function Features({ showLink = false }: { showLink?: boolean }) {
                         viewport={{ once: true }}
                     >
                         <BackgroundGradient className="rounded-3xl p-[1px] h-full" containerClassName="h-full">
-                            <div className="rounded-3xl bg-zinc-950 p-8 h-full flex flex-col">
-                                <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-white/10 to-white/5 border border-white/10">
-                                    <feature.icon className="h-7 w-7 text-blue-400" />
+                            <div className="rounded-3xl bg-white/[0.02] p-8 h-full flex flex-col border border-white/5">
+                                <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-500/15 to-fuchsia-600/10 border border-violet-500/20">
+                                    <feature.icon className="h-7 w-7 text-violet-400" />
                                 </div>
 
                                 <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
-                                <p className="text-muted-foreground leading-relaxed flex-1">
+                                <p className="text-white/50 leading-relaxed flex-1">
                                     {feature.description}
                                 </p>
                             </div>
@@ -99,7 +99,7 @@ export function Features({ showLink = false }: { showLink?: boolean }) {
                 >
                     <a
                         href="/features"
-                        className="group inline-flex items-center justify-center px-8 py-3 text-sm font-bold text-white bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 rounded-full transition-all duration-200 shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40"
+                        className="group inline-flex items-center justify-center px-8 py-3 text-sm font-bold text-white bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-500 hover:to-fuchsia-500 rounded-full transition-all duration-200 shadow-lg shadow-violet-500/25 hover:shadow-violet-500/40"
                     >
                         Découvrir Toutes les Fonctionnalités
                         <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">

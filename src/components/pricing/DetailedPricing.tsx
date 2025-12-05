@@ -326,7 +326,7 @@ export function DetailedPricing() {
 
                         <div className="flex flex-wrap items-center justify-center gap-4">
                             <Link
-                                href="#contact"
+                                href="/contact"
                                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-medium transition-all group"
                             >
                                 Nous contacter

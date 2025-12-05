@@ -16,7 +16,7 @@ export function Header() {
             <div className="container flex h-16 items-center justify-between">
                 <div className="flex items-center gap-8">
                     <Link href="/" className="flex items-center space-x-2">
-                        <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-violet-500">
+                        <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-violet-400 to-fuchsia-500">
                             OpenInterim
                         </span>
                     </Link>
@@ -65,7 +65,7 @@ export function Header() {
                             <Github className="mr-2 h-4 w-4" /> GitHub
                         </Link>
                     </Button>
-                    <Button asChild className="bg-gradient-to-r from-blue-600 to-violet-600 hover:from-blue-700 hover:to-violet-700 text-white border-0">
+                    <Button asChild className="bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-500 hover:to-fuchsia-500 text-white border-0 shadow-lg shadow-violet-500/20">
                         <Link href="/roadmap">
                             Contribuer
                         </Link>
