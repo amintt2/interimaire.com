@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Circle } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -87,6 +87,11 @@ export function HeroGeometric({
   description = "Crafting exceptional digital experiences through innovative design and cutting-edge technology.",
   className,
 }: HeroGeometricProps) {
+  const { scrollY } = useScroll();
+  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
+  const scale = useTransform(scrollY, [0, 300], [1, 0.9]);
+  const y = useTransform(scrollY, [0, 300], [0, 50]);
+
   const fadeUpVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: (i: number) => ({
@@ -151,7 +156,10 @@ export function HeroGeometric({
         />
       </div>
 
-      <div className="relative z-10 container mx-auto px-4 md:px-6">
+      <motion.div
+        style={{ opacity, scale, y }}
+        className="relative z-10 container mx-auto px-4 md:px-6"
+      >
         <div className="max-w-3xl mx-auto text-center">
           <motion.div
             custom={0}
@@ -246,7 +254,7 @@ export function HeroGeometric({
             </div>
           </motion.div>
         </div>
-      </div>
+      </motion.div>
 
       <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-transparent to-[#030303]/80 pointer-events-none" />
     </div>
