@@ -1,90 +1,121 @@
+"use client"
+
 import Link from "next/link"
-import { Github, Twitter, Linkedin, Mail, MapPin } from "lucide-react"
+import { Github, Twitter, Linkedin, Mail, MapPin, Heart, ExternalLink } from "lucide-react"
 
 export function Footer() {
-    return (
-        <footer className="relative border-t border-white/5 bg-[#0a0e1a] overflow-hidden">
-            {/* Background grid pattern */}
-            <div className="absolute inset-0 bg-[linear-gradient(rgba(139,92,246,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(139,92,246,0.02)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]" />
+    const currentYear = new Date().getFullYear()
 
-            <div className="container relative z-10 py-16">
-                {/* Main footer content */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-                    {/* OpenInterim Column */}
-                    <div className="space-y-4">
+    return (
+        <footer className="relative border-t border-white/[0.06] bg-[#030303]">
+            <div className="container py-16">
+                {/* Main Grid */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-12 mb-12">
+                    {/* Brand Column */}
+                    <div className="col-span-2 md:col-span-1 space-y-4">
                         <h3 className="text-xl font-bold text-white">OpenInterim</h3>
-                        <p className="text-sm text-slate-400 leading-relaxed max-w-xs">
-                            Nous construisons l&apos;avenir de l&apos;intérim, ligne de code après ligne de code. Rejoignez le mouvement open source.
+                        <p className="text-sm text-white/40 leading-relaxed max-w-xs">
+                            L'intérim réinventé. Open Source & alimenté par l'IA.
                         </p>
-                        {/* Social Icons */}
                         <div className="flex gap-3 pt-2">
                             <a
-                                href="https://github.com"
+                                href="https://github.com/openinterim"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="w-9 h-9 rounded-lg bg-white/5 hover:bg-violet-500/10 border border-white/10 flex items-center justify-center transition-all duration-200 hover:scale-110 group"
+                                className="w-9 h-9 rounded-lg bg-white/[0.03] border border-white/[0.06] flex items-center justify-center transition-all duration-200 hover:bg-white/[0.08] hover:border-white/20 group"
                             >
-                                <Github className="w-4 h-4 text-white/50 group-hover:text-violet-400 transition-colors" />
+                                <Github className="w-4 h-4 text-white/40 group-hover:text-white transition-colors" />
                             </a>
                             <a
-                                href="https://twitter.com"
+                                href="https://twitter.com/openinterim"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="w-9 h-9 rounded-lg bg-white/5 hover:bg-violet-500/10 border border-white/10 flex items-center justify-center transition-all duration-200 hover:scale-110 group"
+                                className="w-9 h-9 rounded-lg bg-white/[0.03] border border-white/[0.06] flex items-center justify-center transition-all duration-200 hover:bg-white/[0.08] hover:border-white/20 group"
                             >
-                                <Twitter className="w-4 h-4 text-white/50 group-hover:text-violet-400 transition-colors" />
+                                <Twitter className="w-4 h-4 text-white/40 group-hover:text-white transition-colors" />
                             </a>
                             <a
-                                href="https://linkedin.com"
+                                href="https://linkedin.com/company/openinterim"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="w-9 h-9 rounded-lg bg-white/5 hover:bg-violet-500/10 border border-white/10 flex items-center justify-center transition-all duration-200 hover:scale-110 group"
+                                className="w-9 h-9 rounded-lg bg-white/[0.03] border border-white/[0.06] flex items-center justify-center transition-all duration-200 hover:bg-white/[0.08] hover:border-white/20 group"
                             >
-                                <Linkedin className="w-4 h-4 text-white/50 group-hover:text-violet-400 transition-colors" />
+                                <Linkedin className="w-4 h-4 text-white/40 group-hover:text-white transition-colors" />
                             </a>
                         </div>
                     </div>
 
-                    {/* Projet Column */}
+                    {/* Produit */}
                     <div className="space-y-4">
-                        <h3 className="text-lg font-semibold text-white">Projet</h3>
+                        <h4 className="text-sm font-semibold text-white uppercase tracking-wider">Produit</h4>
                         <nav className="flex flex-col space-y-3">
-                            <Link
-                                href="/features"
-                                className="text-sm text-slate-400 hover:text-blue-400 transition-colors duration-200 w-fit"
-                            >
+                            <Link href="/features" className="text-sm text-white/40 hover:text-white transition-colors w-fit">
                                 Fonctionnalités
                             </Link>
-                            <Link
-                                href="/roadmap"
-                                className="text-sm text-slate-400 hover:text-blue-400 transition-colors duration-200 w-fit"
-                            >
+                            <Link href="/roadmap" className="text-sm text-white/40 hover:text-white transition-colors w-fit">
                                 Roadmap
                             </Link>
+                            <Link href="/pricing" className="text-sm text-white/40 hover:text-white transition-colors w-fit">
+                                Tarifs
+                            </Link>
                             <a
-                                href="https://github.com"
+                                href="https://github.com/openinterim"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-sm text-slate-400 hover:text-blue-400 transition-colors duration-200 w-fit"
+                                className="text-sm text-white/40 hover:text-white transition-colors w-fit inline-flex items-center gap-1"
                             >
-                                GitHub
+                                GitHub <ExternalLink className="w-3 h-3" />
                             </a>
                         </nav>
                     </div>
 
-                    {/* Contact Column */}
+                    {/* Ressources */}
                     <div className="space-y-4">
-                        <h3 className="text-lg font-semibold text-white">Contact</h3>
+                        <h4 className="text-sm font-semibold text-white uppercase tracking-wider">Ressources</h4>
+                        <nav className="flex flex-col space-y-3">
+                            <a
+                                href="https://docs.openinterim.fr"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-sm text-white/40 hover:text-white transition-colors w-fit inline-flex items-center gap-1"
+                            >
+                                Documentation <ExternalLink className="w-3 h-3" />
+                            </a>
+                            <a
+                                href="https://github.com/openinterim/openinterim/blob/main/CONTRIBUTING.md"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-sm text-white/40 hover:text-white transition-colors w-fit inline-flex items-center gap-1"
+                            >
+                                Contribuer <ExternalLink className="w-3 h-3" />
+                            </a>
+                            <a
+                                href="https://github.com/openinterim/openinterim/releases"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-sm text-white/40 hover:text-white transition-colors w-fit inline-flex items-center gap-1"
+                            >
+                                Changelog <ExternalLink className="w-3 h-3" />
+                            </a>
+                            <Link href="/contact" className="text-sm text-white/40 hover:text-white transition-colors w-fit">
+                                Contact
+                            </Link>
+                        </nav>
+                    </div>
+
+                    {/* Contact */}
+                    <div className="space-y-4">
+                        <h4 className="text-sm font-semibold text-white uppercase tracking-wider">Contact</h4>
                         <div className="flex flex-col space-y-3">
                             <a
                                 href="mailto:contact@openinterim.fr"
-                                className="flex items-center gap-2 text-sm text-slate-400 hover:text-blue-400 transition-colors duration-200 group w-fit"
+                                className="flex items-center gap-2 text-sm text-white/40 hover:text-white transition-colors w-fit group"
                             >
-                                <Mail className="w-4 h-4 text-blue-400 group-hover:text-blue-300 transition-colors" />
+                                <Mail className="w-4 h-4" />
                                 <span>contact@openinterim.fr</span>
                             </a>
-                            <div className="flex items-center gap-2 text-sm text-slate-400">
-                                <MapPin className="w-4 h-4 text-blue-400" />
+                            <div className="flex items-center gap-2 text-sm text-white/40">
+                                <MapPin className="w-4 h-4" />
                                 <span>Paris, France</span>
                             </div>
                         </div>
@@ -92,23 +123,29 @@ export function Footer() {
                 </div>
 
                 {/* Bottom Section */}
-                <div className="pt-8 border-t border-blue-500/10 flex flex-col md:flex-row items-center justify-between gap-4">
-                    <p className="text-sm text-slate-500">
-                        © 2025 OpenInterim Project • Licence MIT
-                    </p>
+                <div className="pt-8 border-t border-white/[0.06] flex flex-col md:flex-row items-center justify-between gap-4">
+                    <div className="flex items-center gap-1 text-sm text-white/30">
+                        <span>© {currentYear} OpenInterim</span>
+                        <span className="mx-2">•</span>
+                        <span>Fait avec</span>
+                        <Heart className="w-3 h-3 text-red-500 mx-1" />
+                        <span>en France</span>
+                    </div>
                     <div className="flex gap-6">
-                        <Link
-                            href="/legal"
-                            className="text-sm text-slate-500 hover:text-blue-400 transition-colors duration-200"
-                        >
+                        <Link href="/legal" className="text-sm text-white/30 hover:text-white/60 transition-colors">
                             Mentions légales
                         </Link>
-                        <Link
-                            href="/privacy"
-                            className="text-sm text-slate-500 hover:text-blue-400 transition-colors duration-200"
-                        >
+                        <Link href="/privacy" className="text-sm text-white/30 hover:text-white/60 transition-colors">
                             Confidentialité
                         </Link>
+                        <a
+                            href="https://github.com/openinterim/openinterim/blob/main/LICENSE"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-sm text-white/30 hover:text-white/60 transition-colors"
+                        >
+                            Licence MIT
+                        </a>
                     </div>
                 </div>
             </div>

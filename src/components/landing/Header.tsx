@@ -12,11 +12,11 @@ export function Header() {
     const isActive = (path: string) => pathname === path
 
     return (
-        <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-background/60 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60">
+        <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/[0.06] bg-[#030303]/80 backdrop-blur-xl">
             <div className="container flex h-16 items-center justify-between">
                 <div className="flex items-center gap-8">
                     <Link href="/" className="flex items-center space-x-2">
-                        <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-violet-400 to-fuchsia-500">
+                        <span className="text-xl font-bold text-white">
                             OpenInterim
                         </span>
                     </Link>
@@ -24,8 +24,8 @@ export function Header() {
                         <Link
                             href="/features"
                             className={cn(
-                                "transition-colors hover:text-primary",
-                                isActive("/features") ? "text-primary" : "text-muted-foreground"
+                                "transition-colors hover:text-blue-400",
+                                isActive("/features") ? "text-blue-400" : "text-white/50"
                             )}
                         >
                             Fonctionnalités
@@ -33,8 +33,8 @@ export function Header() {
                         <Link
                             href="/roadmap"
                             className={cn(
-                                "transition-colors hover:text-primary",
-                                isActive("/roadmap") ? "text-primary" : "text-muted-foreground"
+                                "transition-colors hover:text-amber-400",
+                                isActive("/roadmap") ? "text-amber-400" : "text-white/50"
                             )}
                         >
                             Roadmap
@@ -42,8 +42,8 @@ export function Header() {
                         <Link
                             href="/pricing"
                             className={cn(
-                                "transition-colors hover:text-primary",
-                                isActive("/pricing") ? "text-primary" : "text-muted-foreground"
+                                "transition-colors hover:text-violet-400",
+                                isActive("/pricing") ? "text-violet-400" : "text-white/50"
                             )}
                         >
                             Tarifs
@@ -51,8 +51,8 @@ export function Header() {
                         <Link
                             href="/contact"
                             className={cn(
-                                "transition-colors hover:text-primary",
-                                isActive("/contact") ? "text-primary" : "text-muted-foreground"
+                                "transition-colors hover:text-white",
+                                isActive("/contact") ? "text-white" : "text-white/50"
                             )}
                         >
                             Contact
@@ -60,12 +60,12 @@ export function Header() {
                     </nav>
                 </div>
                 <div className="flex items-center gap-4">
-                    <Button asChild variant="ghost" size="sm" className="hidden sm:inline-flex">
+                    <Button asChild variant="ghost" size="sm" className="hidden sm:inline-flex text-white/50 hover:text-white hover:bg-white/[0.05]">
                         <Link href="https://github.com/openinterim" target="_blank">
                             <Github className="mr-2 h-4 w-4" /> GitHub
                         </Link>
                     </Button>
-                    <Button asChild className="bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-500 hover:to-fuchsia-500 text-white border-0 shadow-lg shadow-violet-500/20">
+                    <Button asChild className="bg-white text-black hover:bg-white/90 font-semibold">
                         <Link href="/roadmap">
                             Contribuer
                         </Link>
