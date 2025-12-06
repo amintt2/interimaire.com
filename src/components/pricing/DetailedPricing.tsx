@@ -245,7 +245,7 @@ export function DetailedPricing() {
                                 <h3 className="text-lg font-bold text-white mb-2">Reconnaissance</h3>
                                 <p className="text-white/50 text-sm">
                                     Votre nom (ou logo) dans les crédits et sur le site.
-                                    Vous faites partie de l'histoire d'OpenInterim.
+                                    Vous faites partie de l'histoire d'intérimaire.com.
                                 </p>
                             </div>
                         </div>

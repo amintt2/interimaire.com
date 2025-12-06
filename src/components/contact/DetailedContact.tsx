@@ -9,8 +9,8 @@ const contactMethods = [
     {
         icon: Mail,
         label: "Email",
-        value: "fondateurs@openinterim.fr",
-        href: "mailto:fondateurs@openinterim.fr",
+        value: "fondateurs@intérimaire.com",
+        href: "mailto:fondateurs@intérimaire.com",
         description: "Réponse sous 24h",
         color: "blue"
     },
@@ -26,7 +26,7 @@ const contactMethods = [
         icon: MessageCircle,
         label: "Discord",
         value: "Rejoindre le serveur",
-        href: "https://discord.gg/openinterim",
+        href: "https://discord.gg/interimaire-com",
         description: "Communauté active",
         color: "indigo"
     }
@@ -335,7 +335,7 @@ export function DetailedContact() {
                                 <p className="text-sm text-white/40 mb-4">Suivez-nous</p>
                                 <div className="flex gap-3">
                                     <a
-                                        href="https://linkedin.com/company/openinterim"
+                                        href="https://linkedin.com/company/interimaire-com"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center hover:bg-blue-500/20 transition-colors group"
@@ -343,7 +343,7 @@ export function DetailedContact() {
                                         <Linkedin className="w-5 h-5 text-white/40 group-hover:text-blue-400 transition-colors" />
                                     </a>
                                     <a
-                                        href="https://twitter.com/openinterim"
+                                        href="https://twitter.com/interimaire_com"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center hover:bg-blue-500/20 transition-colors group"
@@ -351,7 +351,7 @@ export function DetailedContact() {
                                         <Twitter className="w-5 h-5 text-white/40 group-hover:text-blue-400 transition-colors" />
                                     </a>
                                     <a
-                                        href="https://github.com/openinterim"
+                                        href="https://github.com/interimaire-com"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors group"

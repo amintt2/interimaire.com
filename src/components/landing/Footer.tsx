@@ -13,13 +13,13 @@ export function Footer() {
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-12 mb-12">
                     {/* Brand Column */}
                     <div className="col-span-2 md:col-span-1 space-y-4">
-                        <h3 className="text-xl font-bold text-white">OpenInterim</h3>
+                        <h3 className="text-xl font-bold text-white">intérimaire.com</h3>
                         <p className="text-sm text-white/40 leading-relaxed max-w-xs">
                             L'intérim réinventé. Open Source & alimenté par l'IA.
                         </p>
                         <div className="flex gap-3 pt-2">
                             <a
-                                href="https://github.com/openinterim"
+                                href="https://github.com/interimaire-com"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-9 h-9 rounded-lg bg-white/[0.03] border border-white/[0.06] flex items-center justify-center transition-all duration-200 hover:bg-white/[0.08] hover:border-white/20 group"
@@ -27,7 +27,7 @@ export function Footer() {
                                 <Github className="w-4 h-4 text-white/40 group-hover:text-white transition-colors" />
                             </a>
                             <a
-                                href="https://twitter.com/openinterim"
+                                href="https://twitter.com/interimaire_com"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-9 h-9 rounded-lg bg-white/[0.03] border border-white/[0.06] flex items-center justify-center transition-all duration-200 hover:bg-white/[0.08] hover:border-white/20 group"
@@ -35,7 +35,7 @@ export function Footer() {
                                 <Twitter className="w-4 h-4 text-white/40 group-hover:text-white transition-colors" />
                             </a>
                             <a
-                                href="https://linkedin.com/company/openinterim"
+                                href="https://linkedin.com/company/interimaire-com"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-9 h-9 rounded-lg bg-white/[0.03] border border-white/[0.06] flex items-center justify-center transition-all duration-200 hover:bg-white/[0.08] hover:border-white/20 group"
@@ -59,7 +59,7 @@ export function Footer() {
                                 Tarifs
                             </Link>
                             <a
-                                href="https://github.com/openinterim"
+                                href="https://github.com/interimaire-com"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-sm text-white/40 hover:text-white transition-colors w-fit inline-flex items-center gap-1"
@@ -74,7 +74,7 @@ export function Footer() {
                         <h4 className="text-sm font-semibold text-white uppercase tracking-wider">Ressources</h4>
                         <nav className="flex flex-col space-y-3">
                             <a
-                                href="https://docs.openinterim.fr"
+                                href="https://docs.intérimaire.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-sm text-white/40 hover:text-white transition-colors w-fit inline-flex items-center gap-1"
@@ -82,7 +82,7 @@ export function Footer() {
                                 Documentation <ExternalLink className="w-3 h-3" />
                             </a>
                             <a
-                                href="https://github.com/openinterim/openinterim/blob/main/CONTRIBUTING.md"
+                                href="https://github.com/interimaire-com/interimaire/blob/main/CONTRIBUTING.md"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-sm text-white/40 hover:text-white transition-colors w-fit inline-flex items-center gap-1"
@@ -90,7 +90,7 @@ export function Footer() {
                                 Contribuer <ExternalLink className="w-3 h-3" />
                             </a>
                             <a
-                                href="https://github.com/openinterim/openinterim/releases"
+                                href="https://github.com/interimaire-com/interimaire/blob/main/releases"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-sm text-white/40 hover:text-white transition-colors w-fit inline-flex items-center gap-1"
@@ -108,11 +108,11 @@ export function Footer() {
                         <h4 className="text-sm font-semibold text-white uppercase tracking-wider">Contact</h4>
                         <div className="flex flex-col space-y-3">
                             <a
-                                href="mailto:contact@openinterim.fr"
+                                href="mailto:contact@intérimaire.com"
                                 className="flex items-center gap-2 text-sm text-white/40 hover:text-white transition-colors w-fit group"
                             >
                                 <Mail className="w-4 h-4" />
-                                <span>contact@openinterim.fr</span>
+                                <span>contact@intérimaire.com</span>
                             </a>
                             <div className="flex items-center gap-2 text-sm text-white/40">
                                 <MapPin className="w-4 h-4" />
@@ -125,7 +125,10 @@ export function Footer() {
                 {/* Bottom Section */}
                 <div className="pt-8 border-t border-white/[0.06] flex flex-col md:flex-row items-center justify-between gap-4">
                     <div className="flex items-center gap-1 text-sm text-white/30">
-                        <span>© {currentYear} OpenInterim</span>
+                        <span>© {currentYear} intérimaire.com</span>
+                        <span className="mx-2">•</span>
+                        <span>Développé par</span>
+                        <a href="https://french-web.fr" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-white transition-colors mx-1 font-medium">French-Web</a>
                         <span className="mx-2">•</span>
                         <span>Fait avec</span>
                         <Heart className="w-3 h-3 text-red-500 mx-1" />
@@ -139,7 +142,7 @@ export function Footer() {
                             Confidentialité
                         </Link>
                         <a
-                            href="https://github.com/openinterim/openinterim/blob/main/LICENSE"
+                            href="https://github.com/interimaire-com/interimaire/blob/main/LICENSE"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-sm text-white/30 hover:text-white/60 transition-colors"

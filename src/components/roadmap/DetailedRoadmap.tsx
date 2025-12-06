@@ -284,7 +284,7 @@ export function DetailedRoadmap() {
                                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                             </a>
                             <a
-                                href="https://github.com/openinterim"
+                                href="https://github.com/interimaire-com"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 hover:bg-white/10 text-white font-medium border border-white/10 transition-colors group"

@@ -36,7 +36,7 @@ export function Pricing() {
                         ))}
                     </ul>
                     <Button className="w-full mt-8 border-white/10 hover:bg-violet-500/10 hover:border-violet-500/30 hover:text-violet-400" variant="outline" asChild>
-                        <Link href="https://github.com/openinterim" target="_blank">Voir le code</Link>
+                        <Link href="https://github.com/interimaire-com" target="_blank">Voir le code</Link>
                     </Button>
                 </motion.div>
 

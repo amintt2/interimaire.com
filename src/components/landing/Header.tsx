@@ -17,7 +17,7 @@ export function Header() {
                 <div className="flex items-center gap-8">
                     <Link href="/" className="flex items-center space-x-2">
                         <span className="text-xl font-bold text-white">
-                            OpenInterim
+                            intérimaire.com
                         </span>
                     </Link>
                     <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
@@ -61,7 +61,7 @@ export function Header() {
                 </div>
                 <div className="flex items-center gap-4">
                     <Button asChild variant="ghost" size="sm" className="hidden sm:inline-flex text-white/50 hover:text-white hover:bg-white/[0.05]">
-                        <Link href="https://github.com/openinterim" target="_blank">
+                        <Link href="https://github.com/interimaire-com" target="_blank">
                             <Github className="mr-2 h-4 w-4" /> GitHub
                         </Link>
                     </Button>

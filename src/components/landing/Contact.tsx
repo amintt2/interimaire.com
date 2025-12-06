@@ -75,10 +75,10 @@ export function Contact() {
                                             Email
                                         </p>
                                         <a
-                                            href="mailto:fondateurs@openinterim.fr"
+                                            href="mailto:fondateurs@intérimaire.com"
                                             className="text-xl font-semibold text-white hover:text-blue-400 transition-colors"
                                         >
-                                            fondateurs@openinterim.fr
+                                            fondateurs@intérimaire.com
                                         </a>
                                     </div>
                                 </div>
