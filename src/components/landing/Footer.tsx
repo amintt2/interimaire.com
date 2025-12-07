@@ -123,18 +123,22 @@ export function Footer() {
                 </div>
 
                 {/* Bottom Section */}
-                <div className="pt-8 border-t border-white/[0.06] flex flex-col md:flex-row items-center justify-between gap-4">
-                    <div className="flex items-center gap-1 text-sm text-white/30">
+                <div className="pt-8 border-t border-white/[0.06] flex flex-col items-center gap-4">
+                    <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-sm text-white/30 text-center">
                         <span>© {currentYear} intérimaire.com</span>
-                        <span className="mx-2">•</span>
-                        <span>Développé par</span>
-                        <a href="https://french-web.fr" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-white transition-colors mx-1 font-medium">French-Web</a>
-                        <span className="mx-2">•</span>
-                        <span>Fait avec</span>
-                        <Heart className="w-3 h-3 text-red-500 mx-1" />
-                        <span>en France</span>
+                        <span className="hidden sm:inline">•</span>
+                        <span className="flex items-center gap-1">
+                            Développé par
+                            <a href="https://french-web.fr" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-white transition-colors font-medium">French-Web</a>
+                        </span>
+                        <span className="hidden sm:inline">•</span>
+                        <span className="flex items-center gap-1">
+                            Fait avec
+                            <Heart className="w-3 h-3 text-red-500" />
+                            en France
+                        </span>
                     </div>
-                    <div className="flex gap-6">
+                    <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
                         <Link href="/legal" className="text-sm text-white/30 hover:text-white/60 transition-colors">
                             Mentions légales
                         </Link>

@@ -17,18 +17,10 @@ const contactMethods = [
     {
         icon: Phone,
         label: "Téléphone",
-        value: "01 89 76 54 32",
-        href: "tel:0189765432",
+        value: "+33 07 80 58 82 85",
+        href: "tel:+33780588285",
         description: "Lun-Ven, 9h-18h",
         color: "emerald"
-    },
-    {
-        icon: MessageCircle,
-        label: "Discord",
-        value: "Rejoindre le serveur",
-        href: "https://discord.gg/interimaire-com",
-        description: "Communauté active",
-        color: "indigo"
     }
 ]
 
@@ -123,7 +115,7 @@ export function DetailedContact() {
             {/* Contact Methods */}
             <section className="relative py-8">
                 <div className="container">
-                    <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                    <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
                         {contactMethods.map((method, index) => {
                             const colors = colorVariants[method.color]
                             return (

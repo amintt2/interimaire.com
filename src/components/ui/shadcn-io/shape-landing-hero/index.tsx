@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Circle } from "lucide-react";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 type ElegantShapeProps = {
   className?: string;
@@ -214,18 +215,18 @@ export function HeroGeometric({
             animate="visible"
             className="flex flex-wrap items-center justify-center gap-4 mb-16"
           >
-            <button className="px-6 py-3 rounded-lg bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-medium transition-all duration-200 flex items-center gap-2">
+            <Link href="/pricing" className="px-6 py-3 rounded-lg bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-medium transition-all duration-200 flex items-center gap-2">
               Devenir Fondateur
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
-            </button>
-            <button className="px-6 py-3 rounded-lg bg-white/[0.05] hover:bg-white/[0.08] text-white/80 font-medium border border-white/[0.1] transition-all duration-200 flex items-center gap-2">
+            </Link>
+            <a href="https://github.com/amintt2/interimaire.com" target="_blank" rel="noopener noreferrer" className="px-6 py-3 rounded-lg bg-white/[0.05] hover:bg-white/[0.08] text-white/80 font-medium border border-white/[0.1] transition-all duration-200 flex items-center gap-2">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
               </svg>
               Code Source
-            </button>
+            </a>
           </motion.div>
 
           {/* Feature Badges */}

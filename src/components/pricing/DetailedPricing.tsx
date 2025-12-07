@@ -9,13 +9,13 @@ const founderTiers = [
     {
         id: "supporter",
         name: "Supporter",
-        price: "25€",
+        price: "65€",
         period: "/mois",
         description: "Soutenez le projet et accédez aux coulisses du développement.",
         color: "blue",
         popular: false,
         benefits: [
-            { text: "Accès Discord privé", icon: Users },
+
             { text: "Mises à jour exclusives", icon: Zap },
             { text: "Nom dans les crédits", icon: Star },
             { text: "Badge Supporter", icon: Heart }
@@ -25,7 +25,7 @@ const founderTiers = [
     {
         id: "founder",
         name: "Fondateur",
-        price: "75€",
+        price: "190€",
         period: "/mois",
         description: "Participez activement aux décisions et bénéficiez d'avantages exclusifs à vie.",
         color: "indigo",
@@ -42,7 +42,7 @@ const founderTiers = [
     {
         id: "partner",
         name: "Partenaire",
-        price: "200€",
+        price: "500€",
         period: "/mois",
         description: "Devenez un partenaire stratégique et façonnez l'avenir de la plateforme.",
         color: "amber",
@@ -64,7 +64,7 @@ const postLaunchPlans = [
         name: "Open Source",
         price: "Gratuit",
         description: "Auto-hébergement",
-        features: ["Code source complet", "Communauté Discord", "Documentation"]
+        features: ["Code source complet", "Documentation"]
     },
     {
         name: "Cloud",
